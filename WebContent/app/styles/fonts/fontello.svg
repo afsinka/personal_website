@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="lastfm" unicode="&#xe800;" d="m721 457q0-3 6-23 5-16 14-27t22-19 25-11 31-10q181-50 181-185 0-81-59-135t-142-54q-33 0-62 10t-51 26-43 41-35 49-30 58-24 57-22 60-20 53q-18 45-35 74t-41 54-58 36-79 11q-53 0-102-31t-77-81-28-103q0-89 59-156t147-67q99 0 144 53 31 35 46 65l47-85q-8-19-24-39l0 0q-73-85-216-85-82 0-151 44t-106 116-38 153q0 58 24 115t65 98 96 68 114 26q49 0 89-11t69-28 53-44 40-56 33-65 28-69 28-73 31-71q53-112 130-112 45 0 77 27t32 72q0 24-11 40t-28 26-40 17-47 16-49 19-45 29-37 45-21 69q-2 9-2 18 0 61 49 107t111 44q43-2 67-8t50-30h0q6-6 13-14t14-20 11-15l-72-56q-15 28-30 40v0q-13 12-55 12-27 0-46-19t-20-46z" horiz-adv-x="1000" />
+<glyph glyph-name="stackoverflow-1" unicode="&#xe801;" d="m518 68v-84l-395-1v85z m134 193v-391l0-19v-1h-632l-19 1h-1v410h68v-345h517v345h67z m-517-49l392-36-7-84-393 36z m37 177l382-103-22-81-381 102z m91 194l340-201-43-72-340 201z m201 185l222-326-69-48-222 326z m253 82l68-389-84-14-67 388z" horiz-adv-x="785.7" />
+</font>
+</defs>
+</svg>

@@ -1,0 +1,120 @@
+body {
+	color: #333;
+}
+
+.enlight {
+	background-color:#333;
+	color:#fff;
+}
+
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+	.container {
+		max-width:600px;
+	}
+
+  /* Remove the padding we set earlier */
+  	.footer {
+    	padding-left: 0;
+    	padding-right: 0;
+  }
+}
+
+#myPic {
+	box-shadow: 1px 2px 2px rgba(69, 69, 69, .55);
+	float: left;
+	margin-right: 1em;
+}
+.demo-appheader-logo {
+	padding-bottom: 0.5em;
+	padding-left: 1.25em;
+	padding-top: 1.25em;
+	font-size: 14px;
+	box-shadow:0 3px 3px rgba(0,0,0,0.1);
+	background-color:#f0f0f0;
+	border-bottom: 1px solid #e5e5e5;
+	text-shadow: 5px 5px 10px rgba(0,0,0,.5);
+}
+
+.demo-appheader-logo a span {
+	font-size: 24px;
+	width: 24px;
+	height: 24px;
+}
+
+.demo-appheader-logo a span.custom-icon {
+	font-size: 21px;
+	width: 24px;
+	height: 24px;
+}
+
+.demo-appheader-logo a {
+	color: rgba(0, 0, 0, .75);
+	padding: 0.75em;
+	text-decoration: none;
+}
+
+.demo-appheader-logo a:hover {
+	text-decoration: none;
+	opacity: 0.3;
+}
+
+.demo-appheader-logo-block {
+	padding-bottom: 0.5em;
+}
+
+.demo-appheader-logo-block img:hover{
+	opacity: 0.3;
+}
+
+.demo-appheader-logo-block{
+    display: inline-block;
+}
+
+.custom-icon {
+	line-height: 0em;
+}
+
+.headline {
+	padding-top: 1em; 
+	font-size: 21px;
+}
+
+.nav {
+	display: inline-block; 
+	float: right;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav li {
+    float: left;
+    padding-right:1em;
+    padding-top:0.3em;
+}
+
+.nav li.active{
+    text-decoration: underline;
+}
+
+.contact table td {
+	padding: 1em 1em 1em 1em;
+}
+
+.about {
+	text-align: justify;
+}

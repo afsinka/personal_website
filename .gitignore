@@ -1,0 +1,4 @@
+/target/**
+!*.war
+/WebContent/node_modules/**
+/WebContent/bower_components/**
