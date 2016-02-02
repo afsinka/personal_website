@@ -1,6 +1,6 @@
 <div class="contact">
 	<h3>contact</h3>
-	<hr>
+	<hr class="solid_hr">
 	<table>
 		<tbody>
 			<tr>
@@ -20,7 +20,7 @@
 	<br />
 
 	<h3>send anonymous message</h3>
-	<hr>
+	<hr class="solid_hr">
 	<div ng-controller="ContactCtrl">
 		<form ng-submit="sendPost()">
 			<fieldset class="form-group">
@@ -29,9 +29,10 @@
 					for="message">Message: </label>
 				<textarea ng-model="message" class="form-control" id="message"
 					placeholder="(your message)"></textarea>
-
 			</fieldset>
-			<button type="submit" id="submitMsg" class="btn btn-primary">Send</button>
+			<div class="g-recaptcha"
+				data-sitekey="{{datakey}}"></div>
+			<button type="submit" id="submitMsg" class="btn btn-primary" style="float:right;">Send</button>
 		</form>
 		<p>{{result}}
 	</div>
