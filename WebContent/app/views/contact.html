@@ -15,5 +15,13 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	 <div ng-controller="ContactCtrl">
+        <form ng-submit="sendPost()">
+            <input ng-model="message" />
+            <button type="submit">Send</button>
+        </form>
+        <p>Message from servlet: {{result}}
+    </div>
 
 </div>

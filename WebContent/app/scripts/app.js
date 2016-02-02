@@ -24,8 +24,8 @@ angular.module(
 		controller : 'ContactCtrl',
 		controllerAs : 'contact'
 	}).otherwise({
-		redirectTo : '/'
-	});
+        templateUrl: '404.html'
+    });
 
 	$(".nav li").on("click", function() {
 		$(".nav li").removeClass("active");
