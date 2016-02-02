@@ -1,5 +1,6 @@
 <div class="contact">
-	<h2>contact</h2>
+	<h3>contact</h3>
+	<hr>
 	<table>
 		<tbody>
 			<tr>
@@ -15,13 +16,25 @@
 			</tr>
 		</tbody>
 	</table>
-	
-	 <div ng-controller="ContactCtrl">
-        <form ng-submit="sendPost()">
-            <input ng-model="message" />
-            <button type="submit">Send</button>
-        </form>
-        <p>Message from servlet: {{result}}
-    </div>
 
+	<br />
+
+	<h3>send anonymous message</h3>
+	<hr>
+	<div ng-controller="ContactCtrl">
+		<form ng-submit="sendPost()">
+			<fieldset class="form-group">
+				<label for="name">Name: </label> <input ng-model="name"
+					class="form-control" id="name" placeholder="(optional)" /> <label
+					for="message">Message: </label>
+				<textarea ng-model="message" class="form-control" id="message"
+					placeholder="(your message)"></textarea>
+
+			</fieldset>
+			<button type="submit" id="submitMsg" class="btn btn-primary">Send</button>
+		</form>
+		<p>{{result}}
+	</div>
+<br/>
+<br/>
 </div>

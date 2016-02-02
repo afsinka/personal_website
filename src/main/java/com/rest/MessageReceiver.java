@@ -22,11 +22,10 @@ public class MessageReceiver {
 		JSONObject jsonObject = new JSONObject(messageJSON);
 		String msg = (String) jsonObject.get("message");
 
-		System.out.println(msg);
 		logger.debug("message: " + msg);
 
 		JSONObject jsonObject2 = new JSONObject();
-		jsonObject2.put("result", "success");
+		jsonObject2.put("result", "successfully sent! thank you!");
 		String result = "" + jsonObject2;
 
 		return Response.status(200).entity(result).build();

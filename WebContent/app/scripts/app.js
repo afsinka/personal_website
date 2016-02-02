@@ -35,9 +35,9 @@ angular.module(
 	$(".lamp").on("click", function(e) {
 		e.preventDefault();
 		if ($("body").attr("class").indexOf("enlight") > -1) {
-			$("body").removeClass("enlight");
+			$("body, input, textarea").removeClass("enlight");
 		} else {
-			$("body").addClass("enlight");
+			$("body, input, textarea").addClass("enlight");
 		}
 	});
 
