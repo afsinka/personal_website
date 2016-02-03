@@ -31,5 +31,25 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/afsin/lib/json-20151123.jar"/>
 	<classpathentry kind="var" path="AFSIN_HOME/lib/apache-log4j-2.4.1-bin/log4j-api-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/afsin/.m2/repository/org/mongodb/mongodb-driver/3.2.1/mongodb-driver-3.2.1.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="mongodb-driver-3.2.1.jar"/>
+			<attribute name="maven.groupId" value="org.mongodb"/>
+			<attribute name="maven.artifactId" value="mongodb-driver"/>
+			<attribute name="maven.version" value="3.2.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/afsin/.m2/repository/org/mongodb/bson/3.2.1/bson-3.2.1.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="bson-3.2.1.jar"/>
+			<attribute name="maven.groupId" value="org.mongodb"/>
+			<attribute name="maven.artifactId" value="bson"/>
+			<attribute name="maven.version" value="3.2.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

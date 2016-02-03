@@ -12,6 +12,8 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import db.MongoDBClient;
+
 @Path("/sendmessage")
 public class MessageReceiver {
 
@@ -20,6 +22,7 @@ public class MessageReceiver {
 	@POST
 	@Produces("application/json")
 	public Response getMessage(String messageJSON) throws JSONException {
+
 		JSONObject jsonObject = new JSONObject(messageJSON);
 
 		String msg = null;
@@ -40,8 +43,6 @@ public class MessageReceiver {
 			secretKey = (String) jsonObject.get("secretkey");
 		}
 
-		logger.debug(msg + " " + name + " " + gRecaptchaResponse.length());
-
 		boolean verify = false;
 
 		try {
@@ -53,7 +54,11 @@ public class MessageReceiver {
 			logger.error("", e);
 		}
 
+		logger.debug(msg + " " + name + " " + gRecaptchaResponse.length() + " " + verify);
+
 		if (verify) {
+
+			MongoDBClient.save(name, msg);
 
 			JSONObject jsonObject2 = new JSONObject();
 			jsonObject2.put("result", "successfully sent! thank you!");
@@ -68,6 +73,7 @@ public class MessageReceiver {
 			return Response.status(401).entity(result).build();
 
 		}
+
 	}
 
 }

@@ -7,10 +7,7 @@
  * 
  * Main module of the application.
  */
-angular.module(
-		'webContentApp',
-		[ 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize',
-				'ngTouch' ]).config(function($routeProvider) {
+angular.module('webContentApp', [ 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch' ]).config(function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl : 'views/main.html',
 		controller : 'MainCtrl',
@@ -23,9 +20,17 @@ angular.module(
 		templateUrl : 'views/contact.html',
 		controller : 'ContactCtrl',
 		controllerAs : 'contact'
+	}).when('/admin', {
+		templateUrl : 'views/admin.html',
+		controller : 'AdminCtrl',
+		controllerAs : 'admin'
+	}).when('/adminhome', {
+		templateUrl : 'views/adminhome.html',
+		controller : 'AdminHomeCtrl',
+		controllerAs : 'adminhome'
 	}).otherwise({
-        templateUrl: '404.html'
-    });
+		templateUrl : '404.html'
+	});
 
 	$(".nav li").on("click", function() {
 		$(".nav li").removeClass("active");
@@ -63,4 +68,21 @@ angular.module(
 
 });
 
+angular.module('webContentApp').run(run);
+run.$inject = [ '$rootScope', '$location', '$cookieStore', '$http' ];
+function run($rootScope, $location, $cookieStore, $http) {
 
+	$rootScope.$on('$locationChangeStart', function(event, next, current) {
+
+		$rootScope.globals = $cookieStore.get('globals') || {};
+		if ($rootScope.globals.currentUser) {
+			$http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+		}
+
+		var restrictedPage = $.inArray($location.path(), [ '', '/', '/about', '/contact', '/admin' ]) === -1;
+		var loggedIn = $rootScope.globals.currentUser;
+		if (restrictedPage && !loggedIn) {
+			$location.path('/opps');
+		}
+	});
+}
