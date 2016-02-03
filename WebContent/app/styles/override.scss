@@ -122,3 +122,8 @@ body {
 .solid_hr {
 	border-top: 1px solid #333 !important;
 }
+
+table.adminhome, table.adminhome td, table.adminhome th, table.adminhome tr {
+	border: 1px solid black;
+	padding: 5px;
+}

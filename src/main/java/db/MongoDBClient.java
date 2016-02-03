@@ -1,16 +1,20 @@
 package db;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
 public class MongoDBClient {
@@ -104,6 +108,26 @@ public class MongoDBClient {
 			return false;
 		}
 
+	}
+
+	public static JSONArray getMessages() {
+		connect();
+
+		JSONArray jsonArray = new JSONArray();
+
+		MongoCollection<Document> collection = database.getCollection(messagesCollection);
+		MongoCursor<Document> cursor = collection.find().iterator();
+		try {
+			while (cursor.hasNext()) {
+				jsonArray.put(new JSONObject(cursor.next().toJson()));
+			}
+		} finally {
+			cursor.close();
+		}
+
+		close();
+
+		return jsonArray;
 	}
 
 }
