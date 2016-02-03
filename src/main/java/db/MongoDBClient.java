@@ -1,10 +1,10 @@
 package db;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
+import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,9 +21,6 @@ public class MongoDBClient {
 
 	private static MongoClient mongoClient = null;
 	private static MongoDatabase database = null;
-	private static final String url = "localhost";
-	private static final int port = 27017;
-	private static final String dbName = "testdb_1";
 	private static final String messagesCollection = "messages";
 	private static final String usersCollection = "users";
 
@@ -31,6 +28,21 @@ public class MongoDBClient {
 
 	private static void connect() {
 		logger.debug("trying to connect MongoDB...");
+
+		String url = null;
+		Integer port = null;
+		String dbName = null;
+
+		try {
+			Properties properties = new Properties();
+			properties.load(MongoDBClient.class.getClassLoader().getResourceAsStream("config.properties"));
+			url = properties.getProperty("mongodb_url");
+			port = Integer.valueOf(properties.getProperty("mongodb_port"));
+			dbName = properties.getProperty("mongodb_db");
+
+		} catch (IOException e) {
+			logger.error("", e);
+		}
 
 		mongoClient = new MongoClient(url, port);
 		database = mongoClient.getDatabase(dbName);
