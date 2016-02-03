@@ -1,6 +1,7 @@
 package db;
 
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +21,7 @@ public class MongoDBClient {
 	private static final int port = 27017;
 	private static final String dbName = "testdb_1";
 	private static final String messagesCollection = "messages";
+	private static final String usersCollection = "users";
 
 	private static final Logger logger = LogManager.getLogger(MongoDBClient.class);
 
@@ -51,9 +53,24 @@ public class MongoDBClient {
 
 	}
 
+	public static void addUser(String name, byte[] salt, byte[] hash) {
+
+		connect();
+
+		String saltStr = Base64.getEncoder().encodeToString(salt);
+		String hashStr = Base64.getEncoder().encodeToString(hash);
+
+		MongoCollection<Document> collection = database.getCollection(usersCollection);
+		Document doc = new Document("username", name).append("salt", saltStr).append("hash", hashStr);
+		collection.insertOne(doc);
+
+		close();
+
+	}
+
 	private static JSONObject getAdmin() {
 		connect();
-		MongoCollection<Document> collection = database.getCollection("users");
+		MongoCollection<Document> collection = database.getCollection(usersCollection);
 		Document doc = collection.find().first();
 		close();
 		JSONObject jsonObject = new JSONObject(doc.toJson());
@@ -65,24 +82,28 @@ public class MongoDBClient {
 		JSONObject adminJSON = getAdmin();
 
 		String usernameJSON = null;
-		String passwordJSON = null;
+		String saltJSON = null;
+		String hashJSON = null;
 
 		if (adminJSON.has("username") && !adminJSON.isNull("username")) {
 			usernameJSON = adminJSON.getString("username");
 		}
 
-		if (adminJSON.has("password") && !adminJSON.isNull("password")) {
-			passwordJSON = adminJSON.getString("password");
+		if (adminJSON.has("salt") && !adminJSON.isNull("salt")) {
+			saltJSON = adminJSON.getString("salt");
 		}
 
-		if (usernameJSON != null && usernameJSON.equals(username) && passwordJSON != null
-				&& passwordJSON.equals(password)) {
+		if (adminJSON.has("hash") && !adminJSON.isNull("hash")) {
+			hashJSON = adminJSON.getString("hash");
+		}
+
+		if (usernameJSON != null && usernameJSON.equals(username) && SecureUtil.isExpectedPassword(
+				password.toCharArray(), Base64.getDecoder().decode(saltJSON), Base64.getDecoder().decode(hashJSON))) {
 			return true;
 		} else {
 			return false;
 		}
 
 	}
-
 
 }
