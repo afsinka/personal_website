@@ -28,14 +28,14 @@
 					class="form-control" id="name" placeholder="(optional)" /> <label
 					for="message">Message: </label>
 				<textarea ng-model="message" class="form-control" id="message"
-					placeholder="(your message)"></textarea>
+					placeholder="(your message)" required></textarea>
 			</fieldset>
-			<div class="g-recaptcha"
-				data-sitekey="{{datakey}}"></div>
-			<button type="submit" id="submitMsg" class="btn btn-primary" style="float:right;">Send</button>
+			<div class="g-recaptcha" data-sitekey="{{datakey}}"></div>
+			<button type="submit" id="submitMsg" class="btn btn-primary"
+				style="float: right;">Send</button>
 		</form>
-		<p>{{result}}
+		<p>
+		<div style="color: red;">{{result}}</div>
 	</div>
-<br/>
-<br/>
+	<br /> <br />
 </div>
