@@ -64,7 +64,23 @@ angular.module('webContentApp', [ 'ngAnimate', 'ngCookies', 'ngResource', 'ngRou
 	$(document).ready(function() {
 		var win = $(window);
 		menuSizer(win);
+		findCurrentPageName();
 	});
+
+	function findCurrentPageName() {
+		// initial navigation bar highlight
+		$(".nav li").removeClass("active");
+		var path = window.location.hash;
+		
+		for (var i = 0; i < $(".nav li").size(); i++) {
+			var li = $(".nav li")[i];
+			var a = li.getElementsByTagName("a")
+			var href = a[0].getAttribute("href")
+			if (path == href) {
+				$(li).addClass("active");
+			}
+		}
+	}
 
 });
 

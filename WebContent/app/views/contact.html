@@ -4,11 +4,11 @@
 	<table>
 		<tbody>
 			<tr>
-				<td>email</td>
+				<td>email :</td>
 				<td>afsinka_at_gmail_dot_com</td>
 			</tr>
 			<tr>
-				<td>twitter</td>
+				<td>twitter :</td>
 				<td><a
 					href="https://twitter.com/intent/tweet?screen_name=afsinka"
 					class="twitter-mention-button" data-size="large"
@@ -25,13 +25,15 @@
 		<form ng-submit="sendPost()">
 			<fieldset class="form-group">
 				<label for="name">Name: </label> <input ng-model="name"
-					class="form-control" id="name" placeholder="(optional)" /> <label
-					for="message">Message: </label>
+					class="form-control" id="name"
+					style="background: #FFF !important; color: #000 !important;"
+					placeholder="(optional)"> </input> <label for="message">Message:
+				</label>
 				<textarea ng-model="message" class="form-control" id="message"
-					style="resize: none; height: 100px;" placeholder="(your message)"
-					required></textarea>
+					style="resize: none; height: 100px; background: #FFF !important; color: #000 !important;"
+					placeholder="(your message)" required> </textarea>
 			</fieldset>
-			<div class="g-recaptcha" data-sitekey="{{datakey}}"></div>
+			<div class="g-recaptcha" data-sitekey="{{datakey}}" data-theme="ligth"></div>
 			<button type="submit" id="submitMsg" class="btn btn-primary"
 				style="float: right;">Send</button>
 		</form>
