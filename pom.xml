@@ -61,8 +61,8 @@
 				<configuration>
 					<warSourceDirectory>WebContent/dist</warSourceDirectory>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<warName>angular_test4</warName>
-					<outputDirectory>C:\Users\afsin\apache-tomcat-8.0.24\webapps</outputDirectory>
+					<warName>afsinka</warName>
+					<outputDirectory>C:\Program Files (x86)\Apache Software Foundation\Tomcat 8.0\webapps</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>

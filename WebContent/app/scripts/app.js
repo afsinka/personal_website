@@ -36,6 +36,10 @@ angular.module('webContentApp', [ 'ngAnimate', 'ngCookies', 'ngResource', 'ngRou
 		$(".nav li").removeClass("active");
 		$(this).addClass("active");
 	});
+	
+	$(".demo-appheader-logo-block").on("click", function() {
+		$(".nav li").removeClass("active");
+	});
 
 	$(".lamp").on("click", function(e) {
 		e.preventDefault();
