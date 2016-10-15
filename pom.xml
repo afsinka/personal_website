@@ -13,11 +13,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>exec-maven-plugin</artifactId>
-			<version>1.4.0</version>
-		</dependency>
-		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
 			<version>2.22.1</version>
@@ -66,22 +61,41 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>exec-maven-plugin</artifactId>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.0</version>
+				<configuration>
+					<workingDirectory>WebContent</workingDirectory>
+					<installDirectory>WebContent</installDirectory>
+				</configuration>
 				<executions>
 					<execution>
-						<id>grunt-default</id>
-						<phase>generate-resources</phase>
-						<configuration>
-							<workingDirectory>WebContent</workingDirectory>
-							<executable>grunt</executable>
-							<arguments>
-								<argument>build</argument>
-							</arguments>
-						</configuration>
+						<id>install node and npm</id>
 						<goals>
-							<goal>exec</goal>
+							<goal>install-node-and-npm</goal>
 						</goals>
+						<configuration>
+							<nodeVersion>v5.3.0</nodeVersion>
+							<npmVersion>3.10.8</npmVersion>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>grunt build</id>
+						<goals>
+							<goal>grunt</goal>
+						</goals>
+						<configuration>
+							<arguments>build</arguments>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
